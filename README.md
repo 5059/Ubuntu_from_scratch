@@ -2,7 +2,8 @@
 
 This is an installation guide for commonly needed libarys/programms for DL/CV (for my hardware setup). Made mainly for me to quickly setup my system and not spending days searching through forums.
 
-## Install NVIDIA GEFORCE 970 driver (copied from: http://ubuntuforums.org/showthread.php?t=2263316)
+## Install NVIDIA GEFORCE 970 driver 
+(copied from: http://ubuntuforums.org/showthread.php?t=2263316) for backup purposes!
 in terminal write
 sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get install build-essential && sudo apt-get install linux-source && sudo apt-get install linux-headers-generic
 sudo gedit /etc/default/grub #change line "GRUB_CMDLINE_LINUX_DEFAULT..."-line to
