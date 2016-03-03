@@ -53,8 +53,7 @@ sudo reboot
 FINISHED: can be checked by nvidia-smi or lshw -c video
 
 ## Install Caffe (for that install CUDA, cudnn)
-
-first some general dependencies:
+install dependencies for caffe: (see http://caffe.berkeleyvision.org/install_apt.html)
 sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
 sudo apt-get install --no-install-recommends libboost-all-dev
 
@@ -72,8 +71,31 @@ sudo apt-get install ffmpeg gstreamer0.10-ffmpeg
 following  http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/
 cv2.so is not copied correct. has to be done manually. is located at opencv/build and needs to get copied to dist-packages
 
+### Install cudnn
+Download .tar from Nvidia, then
+tar -zxf cudnn-7.0-linux-x64-v3.0-prod.tgz
+cd cuda
+sudo cp lib64/* /usr/local/cuda/lib64/
+sudo cp include/cudnn.h /usr/local/cuda/include/
 
-install dependencies for caffe: (see http://caffe.berkeleyvision.org/install_apt.html)
+### Caffe
+
+git clone https://github.com/BVLC/caffe.git
+cp Makefile.config.example Makefile.config
+edit makefile.config (uncomment use_cudnn check pythonpath, uncomment opencv_3)
+make pycaffe -jX
+make all -jX
+make test -jX
+
+danach tests.
+./data/mnist/get_mnist.sh
+./examples/mnist/create_mnist.sh
+./examples/mnist/train_lenet.sh
+
+if: error libopencv_core.so.3.0 not found. create link/copy files from opencv/build/lib to /usr/local/lib
+
+
+cat python/requirements.txt | xargs -L 1 sudo pip install 
 
 
 
