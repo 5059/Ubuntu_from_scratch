@@ -99,6 +99,9 @@ export PYTHONPATH=<caffe-home>/python:$PYTHONPATH <-- to /.bashrc
 if: error libopencv_core.so.3.0 not found. create link/copy files from opencv/build/lib to /usr/local/lib
 
 
+## Install spyder
+via pip install spyder
+
 
 
 
