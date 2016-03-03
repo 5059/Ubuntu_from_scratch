@@ -1,4 +1,5 @@
 # Ubuntu_from_scratch
+(VIEW RAW FORMAT)
 
 This is an installation guide for commonly needed libarys/programms for DL/CV (for my hardware setup). Made mainly for me to quickly setup my system and not spending days searching through forums.
 
