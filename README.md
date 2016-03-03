@@ -81,6 +81,7 @@ sudo cp include/cudnn.h /usr/local/cuda/include/
 ### Caffe
 
 git clone https://github.com/BVLC/caffe.git
+cat python/requirements.txt | xargs -L 1 sudo pip install 
 cp Makefile.config.example Makefile.config
 edit makefile.config (uncomment use_cudnn check pythonpath, uncomment opencv_3)
 make pycaffe -jX
@@ -92,13 +93,13 @@ danach tests.
 ./examples/mnist/create_mnist.sh
 ./examples/mnist/train_lenet.sh
 
+for working import in python:
+export PYTHONPATH=<caffe-home>/python:$PYTHONPATH <-- to /.bashrc
+
 if: error libopencv_core.so.3.0 not found. create link/copy files from opencv/build/lib to /usr/local/lib
 
 
-cat python/requirements.txt | xargs -L 1 sudo pip install 
 
 
-
-compiling caffe with changed makefile.config: USE_CUDNN :=1 OPENCV_VERSION:=3. PYTHON_INCLUDE
 
 for jekyll: installed ruby: ruby 2.3.0 and 2.3.0-dev installed
