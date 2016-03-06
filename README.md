@@ -102,7 +102,15 @@ if: error libopencv_core.so.3.0 not found. create link/copy files from opencv/bu
 ## Install spyder
 via pip install spyder
 
+## Torch
+in a terminal, run the commands
+git clone https://github.com/torch/distro.git ~/torch --recursive
+cd ~/torch; bash install-deps;
+./install.sh
+refresh env variables:
+source ~/.bashrc
 
+common packagaes for nn/dl: 
 
 
 for jekyll: installed ruby: ruby 2.3.0 and 2.3.0-dev installed
