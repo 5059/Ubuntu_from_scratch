@@ -101,6 +101,7 @@ if: error libopencv_core.so.3.0 not found. create link/copy files from opencv/bu
 
 ## Install spyder
 via pip install spyder
+if importerror: libcudart etc not found -> add cuda/lib64 to path manager of spyder
 
 ## Torch
 in a terminal, run the commands
