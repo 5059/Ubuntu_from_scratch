@@ -69,6 +69,7 @@ sudo apt-get install ffmpeg gstreamer0.10-ffmpeg
 
 ### Install opencv 3.0.0
 following  http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/
+important: install python-numpy for home python (like in installation numpy for virtalenv does not work)
 cv2.so is not copied correct. has to be done manually. is located at opencv/build and needs to get copied to dist-packages
 
 ### Install cudnn
