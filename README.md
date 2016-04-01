@@ -85,6 +85,7 @@ git clone https://github.com/BVLC/caffe.git
 cat python/requirements.txt | xargs -L 1 sudo pip install 
 cp Makefile.config.example Makefile.config
 edit makefile.config (uncomment use_cudnn check pythonpath, uncomment opencv_3)
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 make pycaffe -jX
 make all -jX
 make test -jX
