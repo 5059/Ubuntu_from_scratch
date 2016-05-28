@@ -114,7 +114,12 @@ cd ~/torch; bash install-deps;
 refresh env variables:
 source ~/.bashrc
 
-common packagaes for nn/dl: 
+## Jekyll
 
-
-for jekyll: installed ruby: ruby 2.3.0 and 2.3.0-dev installed
+1: gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+2: \curl -sSL https://get.rvm.io | bash -s stable
+3: rvm get head 
+4: rvm install ruby 
+5: rvm list 
+6: rvm use < ruby-version > 
+7: gem install jekyll
