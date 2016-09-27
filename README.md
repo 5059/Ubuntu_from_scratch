@@ -3,6 +3,10 @@
 
 This is an installation guide for commonly needed libarys/programms for DL/CV (for my hardware setup). Made mainly for me to quickly setup my system and not spending days searching through forums.
 
+check this link before 16.04 update
+
+https://marcnu.github.io/2016-08-17/Tensorflow-v0.10-installed-from-scratch-Ubuntu-16.04-CUDA8.0RC-cuDNN5.1-1080GTX/
+
 ## Install NVIDIA GEFORCE 970 driver 
 (copied from: http://ubuntuforums.org/showthread.php?t=2263316) for backup purposes!
 in terminal write
