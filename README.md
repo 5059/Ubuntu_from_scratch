@@ -127,3 +127,7 @@ source ~/.bashrc
 5: rvm list 
 6: rvm use < ruby-version > 
 7: gem install jekyll
+
+
+# Black Box/Terminal Solution for ubuntu 16.04
+https://wiki.ubuntu.com/Mir/Installing
