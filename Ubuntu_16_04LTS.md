@@ -137,7 +137,7 @@ To work as a python importable package, we have to adapt the PYTHON_PATH variabl
 
 Install spyder 2.3.9 with all optional dependencies. I had troubles using spyder 3, so this is how to setup spyders latest 2.3.9 version.
 ```
-sudo apt-get install python-qt4 #required
+sudo apt-get install python-qt4 python-tk #required
 sudo -H pip install ipython jedi==0.8.1 matplotlib pandas pep8 psutil pyflakes pygments
 sudo -H pip install pylint qtconsole rope sphinx sympy zmq
 sudo pip install spyder==2.3.9 #having troubles with spyder3 (debug object inspection)
