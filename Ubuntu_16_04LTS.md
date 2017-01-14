@@ -144,7 +144,7 @@ sudo pip install spyder==2.3.9 #having troubles with spyder3 (debug object inspe
 ```
 
 If spyder, started from Launcher isn't able to import caffe add:
-- <path to caffe>/python
+- path/to/caffe/python
 to spyders path manager and restart spyder
 
 # Tensorflow, Theano and Keras
