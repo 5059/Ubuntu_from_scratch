@@ -131,7 +131,7 @@ Run tests to see if everything is correctly installed
 If CPU_ONLY installation change /examples/mnist/lenet_solver.prototxt to: solver_mode = CPU
 
 To work as a python importable package, we have to adapt the PYTHON_PATH variable
--export PYTHONPATH=<caffe-home>/python:$PYTHONPATH <-- to /.bashrc
+-export PYTHONPATH=/path/to/caffe/python:$PYTHONPATH <-- to /.bashrc
 
 # Spyder IDE
 
