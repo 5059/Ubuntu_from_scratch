@@ -9,7 +9,56 @@ sudo apt-get upgrade
 
 # Install NVIDIA Driver (GTX 970)
 
-to be added, when setting up my private workstation.
+Note: have to check if cuda installs nvidia drivers as well
+
+# Install CUDA
+
+at the moment of writing this, the newest version of CUDA is 8.0
+- Download CUDA .deb file [here](https://developer.nvidia.com/cuda-downloads)
+
+Preinstallation checks
+```
+# check if gcc is installed
+gcc --version
+
+#install kernel headers and dev packages
+sudo apt-get install linux-headers-$(uname -r) #
+```
+
+then:
+```
+sudo dpkg -i cuda-repo-ubuntu1404-8-0-local_8.0.44-1_amd64.deb
+sudo apt-get update
+sudo apt-get install cuda
+```
+
+Post-installation actions (added to ~/.bashrc)
+```
+export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+#reload bashrc config
+source ~/.bashrc
+
+#check installation
+nvcc --version
+```
+
+Note: If error's occur regarding nvidia driver version, check if multiple drivers
+are installed. If yes, check this [github issue](https://github.com/fchollet/keras/issues/3043)
+
+# Install CUDNN
+at the moment of writing this, the newest version of CUDNN is 5.1
+
+- Download CUDNN v5.1 Library for Linux [here](https://developer.nvidia.com/cudnn)
+- Extract .tgz to folder of choice
+- Open Terminal and 'cd' to this folder
+
+```
+sudo cp lib64/* /usr/local/cuda/lib64/
+sudo cp include/cudnn.h /usr/local/cuda/include/
+```
+
 
 # Install git
 
