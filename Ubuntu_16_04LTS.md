@@ -96,7 +96,7 @@ sudo apt-get install build-essential cmake pkg-config
 sudo apt-get install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
 sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 sudo apt-get install libxvidcore-dev libx264-dev
-sudo apt-get install libgtk-3-dev
+sudo apt-get install libgtk2.0-dev
 sudo apt-get install libatlas-base-dev gfortran
 sudo apt-get install python2.7-dev
 sudo apt-get install python-pip
@@ -168,19 +168,25 @@ Edit the Makefile.config and change following points:
 Install/Build Caffe
 ```
 make pycaffe -j8
-make all -j7
+make all -j8
 make test -j8
 ```
 Run tests to see if everything is correctly installed
 ```
 ./data/mnist/get_mnist.sh
 ./examples/mnist/create_mnist.sh
-./exmaples/mnist/train_lenet.sh
+./examples/mnist/train_lenet.sh
 ```
 If CPU_ONLY installation change /examples/mnist/lenet_solver.prototxt to: solver_mode = CPU
 
 To work as a python importable package, we have to adapt the PYTHON_PATH variable
 -export PYTHONPATH=/path/to/caffe/python:$PYTHONPATH <-- to /.bashrc
+
+If there is a "UserWarning: Matplotlib is building the font cache using fc-list" on the first import of caffe in python, do
+```
+rm -rf ~/.cache/fontconfig/   #worked for me
+```
+See this [issue](https://github.com/matplotlib/matplotlib/issues/5836)
 
 # Spyder IDE
 
@@ -197,6 +203,12 @@ If spyder, started from Launcher isn't able to import caffe add:
 to spyders path manager and restart spyder
 
 # Tensorflow, Theano and Keras
+For tensorflow with only cpu-support, do the following:
 ```
 sudo -H pip install tensorflow keras #keras will install theano as dependencie
+```
+
+For tensorflow with gpu support, we need cuda 8.0 with cudnn v5.1. We then can install tensorflow with gpu-support by the following piece of
+```
+sudo -H pip install tensorflow-gpu
 ```
