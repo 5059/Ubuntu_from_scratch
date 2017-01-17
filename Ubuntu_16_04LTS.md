@@ -212,3 +212,24 @@ For tensorflow with gpu support, we need cuda 8.0 with cudnn v5.1. We then can i
 ```
 sudo -H pip install tensorflow-gpu
 ```
+
+# Chrome Remote Desktop
+
+- Download and install Chrome Browser .deb [here](https://www.google.com/intl/en-US/chrome/browser/desktop/index.html)
+- Get Chrome Desktop Remote App [here](https://chrome.google.com/webstore/detail/gbchcmhmhahfdphkhkmpfmihenigjmpp)
+- Download & Install host components [here](https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb)
+- Create a file called ".chrome-remote-desktop-session" in the home folder and save with the following content
+```
+DESKTOP_SESSION=ubuntu XDG_CURRENT_DESKTOP=Unity XDG_RUNTIME_DIR=/run/user/$(id -u) exec /usr/sbin/lightdm-session 'gnome-session --session=ubuntu'.
+```
+- Allow remote connection in the App
+
+If on the first try of accessing the ubuntu machine via chrome remote desktop only the blank wallpaper shows up add following line to ~/.profile
+```
+export CHROME_REMOTE_DESKTOP_DEFAULT_SIZES=1920x1200 #or any resolution of choice
+```
+If session is already running, restart from terminal by
+```
+sudo /etc/init.d/chrome-remote-desktop stop
+sudo /etc/init.d/chrome-remote-desktop start
+```
