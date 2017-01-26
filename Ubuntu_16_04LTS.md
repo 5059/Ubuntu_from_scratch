@@ -233,3 +233,13 @@ If session is already running, restart from terminal by
 sudo /etc/init.d/chrome-remote-desktop stop
 sudo /etc/init.d/chrome-remote-desktop start
 ```
+
+# Thunar File Manager
+
+```
+sudo apt-get install thunar
+```
+If Thunar is slow on start-up open Terminal and enter
+```
+sudo sed -i 's/AutoMount=true/AutoMount=false/' /usr/share/gvfs/mounts/network.mount
+```
