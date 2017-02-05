@@ -98,7 +98,11 @@ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 sudo apt-get install libxvidcore-dev libx264-dev
 sudo apt-get install libgtk2.0-dev
 sudo apt-get install libatlas-base-dev gfortran
-sudo apt-get install python2.7-dev
+sudo apt-get install python2.7-dev python3-dev
+```
+
+If not with Miniconda/Anaconda
+```
 sudo apt-get install python-pip
 sudo pip install --upgrade pip
 sudo pip install numpy
@@ -117,15 +121,44 @@ Build/Install OpenCV
 cd /opencv-3.2.0/
 mkdir build
 cd build
+```
+
+For Python2.7 without Anaconda/Miniconda this works:
+```
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D CMAKE_INSTALL_PREFIX=/usr/local \
       -D INSTALL_PYTHON_EXAMPLES=ON \
       -D INSTALL_C_EXAMPLES=OFF \
       -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.2.0/modules \
       -D BUILD_EXAMPLES=ON ..
+      
+```
+With Miniconda and for python3
+```
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/home/USER/opencv-3.2.0 \
+-D INSTALL_C_EXAMPLES=OFF \
+-D INSTALL_PYTHON_EXAMPLES=OFF \
+-D OPENCV_EXTRA_MODULES_PATH=/home/USER/opencv_contrib-3.2.0/modules \
+-D BUILD_EXAMPLES=OFF \
+-D BUILD_opencv_python2=OFF \
+-D WITH_FFMPEG=1 \
+-D WITH_CUDA=0 \
+-D PYTHON3_EXECUTABLE=/home/USER/miniconda3/bin/python \
+-D PYTHON_INCLUDE_DIR=/home/USER/miniconda3/include/python3.5m \
+-D PYTHON_INCLUDE_DIR2=/home/USER/miniconda3/include/python3.5m \
+-D PYTHON_LIBRARY=/home/USER/miniconda3/lib/libpython3.5m.so \
+-D PYTHON3_PACKAGES_PATH=/home/USER/miniconda3/lib/python3.5 \
+-D PYTHON3_NUMPY_INCLUDE_DIRS=/home/USER/miniconda3/lib/python3.5/site-packages/numpy/core/include ..
+```
+Then:
+```
 make -j8
 sudo make install
 ```
+
+Maybe the cv2.so file is not correctly copied. With Miniconda3 I found "cv2.cpython-35m-x86_64-linux-gnu.so" inside opencv-3.2.0/build/lib/python3. Rename this to cv2.so and copie to miniconda/lib/python3.5/site-packages worked for me!
+
 
 Then test correct installation and Video support by
 ```
