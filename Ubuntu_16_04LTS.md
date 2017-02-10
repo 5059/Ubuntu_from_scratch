@@ -55,8 +55,9 @@ at the moment of writing this, the newest version of CUDNN is 5.1
 - Open Terminal and 'cd' to this folder
 
 ```
-sudo cp lib64/* /usr/local/cuda/lib64/
-sudo cp include/cudnn.h /usr/local/cuda/include/
+sudo cp -P include/cudnn.h /usr/include
+sudo cp -P lib64/libcudnn* /usr/lib/x86_64-linux-gnu/
+sudo chmod a+r /usr/lib/x86_64-linux-gnu/libcudnn*
 ```
 
 
