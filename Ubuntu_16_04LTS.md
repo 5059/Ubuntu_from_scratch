@@ -8,8 +8,47 @@ sudo apt-get upgrade
 ```
 
 # Install NVIDIA Driver (GTX 970)
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get install build-essential
+sudo apt-get install linux-source
+sudo apt-get install linux-headers-generic
+```
+Open `/etc/default/grub` and change the line of `GRUB_CMDLINE_LINUX_DEFAULT` to `GRUB_CMDLINE_LINUX_DEFAULT="nouveau.blacklist=1 quiet splash nomodeset"`
+```
+sudo update-grub2
+sudo apt-get remove nvidia* #incase of not comming from a fresh installation
+sudo apt-get autoremove #ensures no former installation clashes with new install
+sudo reboot
+```
+After the restart download the newest nvidia-driver from [the nvidia homepage](http://www.nvidia.com/Download/index.aspx?lang=en-us). Right-click on the downloaded file and change it to executable.
 
-Note: have to check if cuda installs nvidia drivers as well
+Then open `/etc/modprobe.d/blacklist.conf` and add the following lines to the end of the file:
+```
+blacklist vga16fb
+blacklist nouveau
+blacklist rivafb
+blacklist nvidiafb
+blacklist rivatv
+blacklist lbm-nouveu
+options nouveau modeset=0
+alias nouveau off
+alias lbm-nouveau off
+```
+Then open the putty-terminal with `Ctrl + Alt+ F1` and enter the following commands
+```
+sudo service lightdm stop #stops graphic session to enable nvidiainstallation
+cd Downloads
+sudo ./{the downloadedfilename.run} #follow the installation instructions (yes to all)
+sudo nvidia-xconfig #(if you did not chose “yes” to this in the installation)
+
+sudo nano /etc/default/grub #Change "GRUB_CMBLINE_LINUX_DEFAULT"-line to GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset”
+sudo update-grub2
+sudo reboot
+```
+Check installation in the terminal by entering `nvidia-smi` or `lshw -c video`
 
 # Install CUDA
 
@@ -276,4 +315,20 @@ sudo apt-get install thunar
 If Thunar is slow on start-up open Terminal and enter
 ```
 sudo sed -i 's/AutoMount=true/AutoMount=false/' /usr/share/gvfs/mounts/network.mount
+```
+
+# Jekyll
+
+```
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable
+
+#restart terminal
+rvm get head 
+rvm install ruby 
+rvm list 
+
+#restart terminal as login shell (edit -> profile preferences -> command -> run as login shell)
+rvm use < ruby-version > 
+gem install jekyll
 ```
