@@ -9,8 +9,6 @@ sudo apt-get upgrade
 
 # Install NVIDIA Driver (GTX 970)
 ```
-sudo apt-get update
-sudo apt-get upgrade
 sudo apt-get dist-upgrade
 sudo apt-get install build-essential
 sudo apt-get install linux-source
