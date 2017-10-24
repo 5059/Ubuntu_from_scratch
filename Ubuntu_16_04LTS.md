@@ -192,7 +192,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 Then:
 ```
 make -j8
-sudo make install
+make install
 ```
 
 Maybe the cv2.so file is not correctly copied. With Miniconda3 I found "cv2.cpython-35m-x86_64-linux-gnu.so" inside opencv-3.2.0/build/lib/python3. Rename this to cv2.so and copie to miniconda/lib/python3.5/site-packages worked for me!
